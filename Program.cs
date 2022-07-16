@@ -17,6 +17,7 @@ namespace ConsoleClient
             string OsVersion = Environment.OSVersion.ToString();
             string UserDomainName = Environment.UserDomainName.ToString();
             string MachineName = Environment.MachineName.ToString();
+            string ProcessorCount = Environment.ProcessorCount.ToString();
             
             TcpClient tcpClient = null;
             try
@@ -31,7 +32,8 @@ namespace ConsoleClient
                     Console.WriteLine(userName + ": ");
                     // Ввод сообщения
                     //string message = Console.ReadLine();
-                    string message = String.Format("{0}: Версия Ос: {1}, Доменное имя: {2}", userName, OsVersion, UserDomainName);
+                    string message = String.Format("{0}: Версия Ос: {1}, Доменное имя: {2}, Имя компьютера: {3}, Количество процессоров: {4}"
+                        , userName, OsVersion, UserDomainName, MachineName, ProcessorCount);
                     // Преобразуем сообщение в массив байтов
                     byte[] data = Encoding.Unicode.GetBytes(message);
                     // Отправка сообщения
